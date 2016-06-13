@@ -1,0 +1,107 @@
+﻿using System.Collections.Generic;
+
+namespace ReactStarter.Common.QueryData
+{
+    public class QueryDataOptions<T>
+    {
+        public IDictionary<string, string> Values { get; }
+
+        readonly HashSet<string> supportedOptions = new HashSet<string>
+        {
+            "$count",
+            "$format",
+            "$deltatoken",
+            "$filter",
+            "$orderby",
+            "$search",
+            "$select",
+            "$expand",
+            "$skip",
+            "$skiptoken",
+            "$top"
+        };
+
+        /// <param name="options">The dictionary storing query option key-value pairs.</param>
+        public QueryDataOptions(IDictionary<string, string> options)
+        {
+            Values = new Dictionary<string, string>();
+
+            foreach (var pair in options)
+            {
+                if (supportedOptions.Contains(pair.Key))
+                {
+                    Values.Add(pair.Key, pair.Value);
+                }
+            }
+        }
+
+        string TryGetValue(string key)
+            => Values.ContainsKey(key) ? Values[key] : null;
+
+        /// <summary>
+        /// Gets the raw $count option value.
+        /// </summary>
+        public string Count
+            => TryGetValue("$count");
+
+        /// <summary>
+        /// Gets the raw $deltatoken option value.
+        /// </summary>
+        public string DeltaToken
+            => TryGetValue("$deltatoken");
+
+        /// <summary>
+        /// Gets the raw $format option value.
+        /// </summary>
+        public string Format
+            => TryGetValue("$format");
+
+        /// <summary>
+        /// Gets the raw $filter option value.
+        /// </summary>
+        public string Filter
+            => TryGetValue("$filter");
+
+        /// <summary>
+        /// Gets the raw $orderby option value.
+        /// </summary>
+        public string OrderBy
+            => TryGetValue("$orderby");
+
+        /// <summary>
+        /// Gets the raw $search option value.
+        /// </summary>
+        public string Search
+            => TryGetValue("$search");
+
+        /// <summary>
+        /// Gets the raw $select option value.
+        /// </summary>
+        public string Select
+            => TryGetValue("$select");
+
+        /// <summary>
+        /// Gets the raw $expand option value.
+        /// </summary>
+        public string Expand
+            => TryGetValue("$expand");
+
+        /// <summary>
+        /// Gets the raw $skip option value.
+        /// </summary>
+        public string Skip
+            => TryGetValue("$skip");
+
+        /// <summary>
+        /// Gets the raw $skiptoken option value.
+        /// </summary>
+        public string SkipToken
+            => TryGetValue("$skiptoken");
+
+        /// <summary>
+        /// Gets the raw $top option value.
+        /// </summary>
+        public string Top
+            => TryGetValue("$top");
+    }
+}

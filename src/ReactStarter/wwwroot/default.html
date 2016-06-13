@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Call Filtering Example - John Dells</title>
+    <link href="css/bootstrap.css" rel="stylesheet" />
+    <link href="css/animations.css" rel="stylesheet" />
+    <script src="/lib/systemjs/system.js"></script>
+    <script src="/lib/object-assign/object-assign.js"></script>
+    <script>
+        System.config({
+            baseURL: 'js',
+            defaultJSExtensions: true,
+            map: {
+                "react": "/lib/react/react.js",
+                "react-dom": "/lib/react/react-dom.js",
+                "redux": "/lib/redux/redux.js",
+                "react-router": "/lib/react-router/ReactRouter.js",
+                "immutable": "/lib/immutable/immutable.js",
+                "es6-promise": "/lib/es6-promise/es6-promise.js",
+                "superagent": "/lib/superagent/superagent.js"
+            }
+        });
+    </script>
+</head>
+<body>
+    <div id="divMain" />
+    <script>
+        System.import('App.js').then((m) => {
+            m.initialize();
+        });
+    </script>
+</body>
+</html>

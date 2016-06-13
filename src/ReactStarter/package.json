@@ -1,0 +1,19 @@
+{
+	"version": "1.0.0",
+	"name": "dellscorp-react-starter",
+	"private": true,
+  "devDependencies": {
+    "gulp": "~3.8.11",
+    "gulp-rename": "~1.2.2",
+    "systemjs": "0.19.23",
+    "object.assign": "4.0.3",
+    "es6-promise": "3.1.2",
+    "bootstrap": "~3.3.6",
+    "react": "0.14.7",
+    "react-dom": "0.14.7",
+    "redux": "~3.0.4",
+    "react-router": "~1.0.0",
+    "immutable": "3.7.6",
+    "superagent": "1.7.2"
+  }
+}
